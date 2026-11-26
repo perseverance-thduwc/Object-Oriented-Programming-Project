@@ -1,0 +1,156 @@
+/* ===================== PIXEL THEME ===================== */
+:root{
+  --ink:#0a0818; --bg:#14122b; --panel:#1d1b3a; --panel2:#272453; --edge:#3f3a7a;
+  --gold:#ffd54a; --text:#f1efff; --muted:#a39fd6;
+  --hp:#e53935; --hp2:#b71c1c; --mp:#3b82f6; --mp2:#1d4ed8;
+  --good:#5be37d; --bad:#ff5252;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:"Courier New",Consolas,"Lucida Console",monospace;font-weight:700;color:var(--text);
+  background:
+    linear-gradient(45deg,#1a1738 25%,transparent 25%,transparent 75%,#1a1738 75%),
+    linear-gradient(45deg,#1a1738 25%,transparent 25%,transparent 75%,#1a1738 75%),var(--bg);
+  background-size:32px 32px;background-position:0 0,16px 16px;-webkit-font-smoothing:none;font-smooth:never}
+#app{max-width:1180px;margin:0 auto;padding:18px 20px 44px}
+h1,h2,h3,h4,p{margin:.3em 0}
+code{background:#0006;padding:1px 6px;color:var(--gold)}
+.muted{color:var(--muted)}
+.loading{text-align:center;margin-top:30vh;font-size:28px;color:var(--gold);letter-spacing:4px}
+img.px{image-rendering:pixelated;image-rendering:crisp-edges;image-rendering:-moz-crisp-edges;display:block;margin:0 auto}
+
+/* pixel panel: bordas em "degraus" em vez de bo goc mem */
+.pix{background:var(--panel);position:relative;
+  box-shadow:0 -4px 0 0 var(--ink),0 4px 0 0 var(--ink),-4px 0 0 0 var(--ink),4px 0 0 0 var(--ink),
+             inset 0 0 0 4px var(--edge),inset 0 -8px 0 0 #0004}
+
+/* ---------- title ---------- */
+.title{text-align:center;padding:26px 0}
+.title h1{font-size:76px;letter-spacing:10px;color:var(--gold);
+  text-shadow:6px 6px 0 #a8651b,-3px -3px 0 var(--ink),3px -3px 0 var(--ink),-3px 3px 0 var(--ink)}
+.sub{color:var(--muted);margin-bottom:6px}
+.cast{display:flex;justify-content:center;align-items:flex-end;gap:26px;margin:26px 0 30px}
+.cast img{animation:bob 1.2s steps(2) infinite}.cast img:nth-child(2){animation-delay:.3s}.cast img:nth-child(3){animation-delay:.6s}
+.foot{color:var(--muted);margin-top:28px}
+
+/* ---------- buttons ---------- */
+.pbtn{font-family:inherit;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;margin:6px;padding:10px 16px;
+  background:#4a44a8;border:0;position:relative;text-transform:uppercase;
+  box-shadow:0 -3px 0 0 var(--ink),0 3px 0 0 var(--ink),-3px 0 0 0 var(--ink),3px 0 0 0 var(--ink),
+             inset 0 -5px 0 0 #2f2a78,inset 0 4px 0 0 #6d66d8}
+.pbtn:hover{background:#5c55c9;transform:translateY(-2px)}
+.pbtn:active{transform:translateY(2px)}
+.pbtn small{display:block;color:#cfcaff;font-size:11px;text-transform:none}
+.pbtn.big{font-size:24px;padding:14px 34px;background:#e0a21a;color:#2a1700;
+  box-shadow:0 -4px 0 0 var(--ink),0 4px 0 0 var(--ink),-4px 0 0 0 var(--ink),4px 0 0 0 var(--ink),inset 0 -6px 0 0 #a8700b,inset 0 5px 0 0 #ffd54a}
+.pbtn.big:hover{background:#f0b52a}
+.pbtn.def{background:#1f7a8c;box-shadow:0 -3px 0 0 var(--ink),0 3px 0 0 var(--ink),-3px 0 0 0 var(--ink),3px 0 0 0 var(--ink),inset 0 -5px 0 0 #135564,inset 0 4px 0 0 #3fb4c9}
+.pbtn.ghost{background:#2a2755}
+.pbtn.disabled,.card.disabled{opacity:.4;cursor:not-allowed;filter:grayscale(1);pointer-events:none}
+.pbtn.item{display:flex;align-items:center;gap:10px;text-align:left;text-transform:none;font-size:13px}
+.pbtn.item img{width:auto}
+.pbtn.skill{min-width:150px}
+
+/* ---------- header ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;margin:6px 4px 20px}
+.brand{color:var(--gold);letter-spacing:4px;font-size:18px}
+.floors{display:flex;gap:10px}
+.dot{width:32px;height:32px;display:grid;place-items:center;background:#0006;
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink)}
+.dot.done{background:var(--good);color:#04260f}
+.dot.now{background:var(--gold);color:#2a1700;animation:blink 1s steps(2) infinite}
+.info{color:var(--muted);font-size:13px}
+footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ---------- stage ---------- */
+.stage{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;min-height:420px;
+  padding:16px 26px 14px;margin:4px;overflow:hidden;background-size:100% 100%;image-rendering:pixelated;
+  box-shadow:0 -4px 0 0 var(--ink),0 4px 0 0 var(--ink),-4px 0 0 0 var(--ink),4px 0 0 0 var(--ink)}
+.heroSide{width:240px}
+.enemySide{display:flex;gap:8px;flex:1;justify-content:flex-end;flex-wrap:wrap;align-items:flex-end}
+.vs{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:34px;color:#fff6;text-shadow:3px 3px 0 #0008}
+.fighter{position:relative;width:148px;text-align:center}
+.fighter .sprite{display:flex;justify-content:center;align-items:flex-end;min-height:90px}
+.fighter.active{width:230px}
+.fighter.boss{width:270px}
+.fighter.small{width:112px}
+.fighter .name{font-size:13px;margin:6px 0 2px;text-shadow:2px 2px 0 #000}
+.fighter .stats{font-size:11px;color:#e6e3ff;text-shadow:1px 1px 0 #000;margin-top:2px}
+.fighter.small .stats{display:none}
+.sprite img{animation:bob 1s steps(2) infinite}
+.fighter:nth-child(2n) .sprite img{animation-delay:.25s}.fighter:nth-child(3n) .sprite img{animation-delay:.5s}
+.fighter.defending .sprite img{filter:drop-shadow(0 0 0 #3fd6ff) drop-shadow(0 0 6px #3fd6ff)}
+.fighter.dead{opacity:.35;filter:grayscale(1)}.fighter.dead .sprite img{animation:none;transform:rotate(90deg)}
+.fighter.target{cursor:crosshair}.fighter.target .sprite img{filter:drop-shadow(0 0 0 #ffd54a) drop-shadow(0 0 8px #ffd54a)}
+.fighter.target:hover{transform:scale(1.06)}
+.fighter.hit .sprite img{animation:shake .38s steps(6);filter:brightness(2.2) saturate(.3)}
+
+/* ---------- bars ---------- */
+.bar{position:relative;height:19px;margin:3px auto;width:100%;background:#12091a;
+  box-shadow:0 -2px 0 var(--ink),0 2px 0 var(--ink),-2px 0 0 var(--ink),2px 0 0 var(--ink)}
+.bar i{position:absolute;inset:0 auto 0 0;transition:width .5s steps(8)}
+.bar.hp i{background:repeating-linear-gradient(90deg,var(--hp) 0 8px,var(--hp2) 8px 10px)}
+.bar.hp.low i{background:repeating-linear-gradient(90deg,#ff7043 0 8px,#d84315 8px 10px);animation:blink .6s steps(2) infinite}
+.bar.mp i{background:repeating-linear-gradient(90deg,var(--mp) 0 8px,var(--mp2) 8px 10px)}
+.bar b{position:relative;display:block;font-size:12px;line-height:19px;color:#fff;text-shadow:1px 1px 0 #000,-1px 1px 0 #000}
+.tags{position:absolute;top:-8px;left:0;right:0;display:flex;justify-content:center;gap:4px;z-index:3}
+.tag{font-size:10px;padding:1px 4px;background:#000;color:#fff;box-shadow:0 0 0 2px var(--ink)}
+.tag.psn{background:#2e7d32}.tag.stn{background:#f9a825;color:#000}.tag.rgn{background:#ad1457}.tag.def{background:#00838f}
+
+/* ---------- floating numbers ---------- */
+.float{position:absolute;left:50%;top:18%;font-size:26px;white-space:nowrap;pointer-events:none;z-index:6;
+  text-shadow:3px 0 #000,-3px 0 #000,0 3px #000,0 -3px #000,3px 3px #000,-3px -3px #000;
+  animation:floatup 1.5s steps(12) forwards}
+.float.dmg{color:#ff6b6b}.float.psn{color:#9cff6b}
+.float.crit{color:var(--gold);font-size:36px}
+.float.miss{color:#d0d0e0;font-size:24px}
+.float.heal{color:var(--good)}.float.mp{color:#7fb6ff}.float.def{color:#6fe6ff}
+
+/* ---------- panels ---------- */
+.panel{display:grid;grid-template-columns:210px 1.1fr 1.1fr;gap:22px;margin:22px 4px 0}
+.panel>div{padding:12px 14px}
+h4{color:var(--gold);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+.mini{display:flex;align-items:center;gap:10px;padding:4px;margin-bottom:5px;border:3px solid transparent;font-size:12px}
+.mini img{width:auto;margin:0}
+.mini.on{border-color:var(--gold);background:#ffd54a22}.mini.dead{opacity:.35;filter:grayscale(1)}
+.abuttons{display:flex;flex-wrap:wrap}
+.actions .stats{font-size:11px;color:var(--muted)}
+.log .lines{height:170px;overflow-y:auto;font-size:12.5px;line-height:1.55;font-weight:400}
+.log .lines div{border-bottom:1px dashed #fff2;padding:1px 0}
+.log .poison{color:#9cff6b}.log .stun{color:#ffe14d}.log .regen{color:#ff9fc0}.log .err{color:var(--bad)}
+.log .big{color:var(--gold);font-weight:700}.log .skill{color:#8fd0ff}
+.log .crit{color:var(--gold);font-weight:700}.log .miss{color:#aaa}
+
+/* ---------- centered screens ---------- */
+.center{text-align:center;padding:6px 0}
+.center h2{font-size:28px;color:var(--gold);text-shadow:3px 3px 0 #000}
+.cards{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.card{width:250px;padding:16px;position:relative}
+.card.pick{cursor:pointer}.card.pick:hover{transform:translateY(-8px);background:var(--panel2)}
+.card .sprite{display:flex;justify-content:center;min-height:150px;align-items:flex-end}
+.card .sprite img{animation:bob 1s steps(2) infinite}
+.card .icon{display:flex;justify-content:center;gap:8px;min-height:100px;align-items:center}
+.cards.two .card{width:320px}
+.card h3{color:var(--gold);margin:8px 0}
+.card .stats{font-size:11px;color:var(--muted);margin:4px 0}
+.skills{list-style:none;padding:0;margin:8px 0;text-align:left;font-size:12px;font-weight:400}.skills small{color:var(--muted)}
+.alert{display:inline-block;background:#ffd54a22;box-shadow:0 0 0 3px var(--gold);color:var(--gold);padding:8px 14px;margin:10px 6px}
+.over h1{font-size:56px;margin:10px;text-shadow:5px 5px 0 #000}.over.win h1{color:var(--gold)}.over.lose h1{color:var(--bad)}
+.letter{font-size:130px;color:var(--gold);text-shadow:8px 8px 0 #a8651b,-3px -3px 0 var(--ink),3px -3px 0 var(--ink);line-height:1.1}
+.result{margin:20px auto;border-collapse:collapse;min-width:400px}
+.result td{padding:9px 18px;border-bottom:2px dashed #fff2;text-align:left}.result td+td{text-align:right}
+.center .log{max-width:740px;margin:26px auto;text-align:left;padding:12px 14px}
+.center .log .lines{height:auto;max-height:140px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#8a1f1f;padding:10px 18px;z-index:20;
+  box-shadow:0 0 0 3px var(--ink)}
+
+/* ---------- animations (stepped = pixel feel) ---------- */
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}60%{transform:translateX(12px)}}
+@keyframes floatup{0%{transform:translate(-50%,0);opacity:0}10%{opacity:1}100%{transform:translate(-50%,-100px);opacity:0}}
+
+@media (max-width:900px){
+  .panel{grid-template-columns:1fr}.stage{flex-direction:column;align-items:center}.heroSide{width:auto}
+  .title h1{font-size:44px}
+}
